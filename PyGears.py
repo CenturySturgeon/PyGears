@@ -39,7 +39,7 @@ def helixturns(ah,height,diameter):
 def lengthofhelix(ah,height,diameter):
     ph = np.pi*diameter*(np.cos(ah)/np.sin(ah))
     numberofturns = height/ph
-    print("#ofturns",numberofturns)
+    #print("#ofturns",numberofturns)
     c = np.pi * diameter
     length = numberofturns*np.sqrt((c)**2+(ph)**2)
     return length
@@ -373,7 +373,7 @@ def cuadrado(vertices, faces, normals, z, radiopoligono, a1, anchoeng, rcircunsc
             normal = normal_to_surface(v1, v2, v3)
             normals = np.append(normals, [normal], axis=0)
     else:
-        print("Radio del polígono circumscrito es muy grande, pruebe con un valor <" + str(radiopoligono))
+        print("Radius of the circumscript polygon is too big, plese try with a value <" + str(radiopoligono))
     return vertices, faces, normals
 
 def hexagono(vertices, faces, normals, z, radiopoligono, a1, anchoeng, rcircunscrito):
@@ -491,12 +491,12 @@ def hexagono(vertices, faces, normals, z, radiopoligono, a1, anchoeng, rcircunsc
             normal = normal_to_surface(v1, v2, v3)
             normals = np.append(normals, [normal], axis=0)
     else:
-        print("Radio del polígono circumscrito es muy grande, pruebe con un valor <" + str(radiopoligono))
+        print("Radius of the circumscript polygon is too big, plese try with a value <" + str(radiopoligono))
     return vertices, faces, normals
 
 #para dr y dh
 def circulo(vertices,faces,normals,z,radiopoligono,a1,anchoeng,rcircunscrito):
-    print("caras niciales",len(faces))
+    #print("caras niciales",len(faces))
     #el circle_points es porque z es 10, pero esto debe quedar de forma que x/z siempre de un entero
     if radiopoligono != -1 and rcircunscrito <= radiopoligono-.15:
 
@@ -505,9 +505,9 @@ def circulo(vertices,faces,normals,z,radiopoligono,a1,anchoeng,rcircunscrito):
         # MODFICAR CIRCLE POINTS PARA QUE SEA UNA VARABLE MAS EFCIENTE A LA HORA DE SELECCIONAR LA CANTIDAD DE
         # CARAS PARA EL CIRCULO
         circle_points = int(300/z)*z
-        print(circle_points)
+        #print(circle_points)
         circle_points_per_vertex = circle_points / z
-        print(circle_points_per_vertex, mt.floor(circle_points_per_vertex / 2))
+        #print(circle_points_per_vertex, mt.floor(circle_points_per_vertex / 2))
         #circle_points_per_vertex=0
         half_angle = (circle_points_per_vertex * 1 * np.pi / circle_points)
         numcarasorig = len(faces)
@@ -579,7 +579,7 @@ def circulo(vertices,faces,normals,z,radiopoligono,a1,anchoeng,rcircunscrito):
                     faces = np.append(faces, [[qj + i + 1, qj + i, qi + 1 + x]], axis=0)
                 else:
                     faces = np.append(faces, [[qj + i, qj + 1 + i, qi + 1 + x]], axis=0)
-            print(len(vertices))
+            #print(len(vertices))
             return vertices, faces, qi
 
         vf = base_faces(vertices, faces, z, radiopoligono, rcircunscrito, a1, True)
@@ -612,7 +612,7 @@ def circulo(vertices,faces,normals,z,radiopoligono,a1,anchoeng,rcircunscrito):
         #print("juaaaaaan", qj,qi,qx)
         #print("caras finales", len(faces))
     else:
-        print("Radio del polígono circumscrito es muy grande, pruebe con un valor <" + str(radiopoligono))
+        print("Radius of the circumscript polygon is too big, plese try with a value <" + str(radiopoligono))
     return vertices, faces, normals
 
 
@@ -800,7 +800,7 @@ def keyway(vertices, faces, normals, z, radiopoligono, anchoeng, r1, alturaC, an
             faces = np.append(faces, [[k0 + i, k3 + j + 1, k3 + j]], axis=0)
             p = 0
             if ppi1 == 0:
-                print("Maldita sea Jimbo, el comunismo no funciona !")
+                print("Error on green triangles, please send this error message to gfsolucionesintegradas@gmail.com DATA: ", vertices, faces, normals, z, radiopoligono, anchoeng, r1, alturaC, anchoC)
 
     # Creo los complementos de los triangulos verdes para cerrar
     for i in range(1, qq[-1] - qq[0] + 1):
@@ -925,7 +925,7 @@ def keyway(vertices, faces, normals, z, radiopoligono, anchoeng, r1, alturaC, an
             faces = np.append(faces, [[k02 + i, k32 + j + 1, k32 + j]], axis=0)
             p = 0
             if ppi1 == 0:
-                print("Maldita sea Jimbo, el comunismo no funciona !")
+                print("Error on green triangles, please send this error message to gfsolucionesintegradas@gmail.com DATA: ", vertices, faces, normals, z, radiopoligono, anchoeng, r1, alturaC, anchoC)
 
     # Creo los complementos de los triangulos verdes para cerrar
     for i in range(1, qq[-1] - qq[0] + 1):
@@ -1466,7 +1466,7 @@ def helkeyway(vertices,faces, normals, z,radiopoligono,anchoeng,r1,alturaC,ancho
             faces = np.append(faces, [[k0 + i,  k3 + j, k3 + j + 1]], axis=0)
             p = 0
             if ppi1 == 0:
-                print("Maldita sea Jimbo, el comunismo no funciona !")
+                print("Error on green triangles, please send this error message to gfsolucionesintegradas@gmail.com DATA: ", vertices, faces, normals, z, radiopoligono, anchoeng, r1, alturaC, anchoC)
 
     # Creo los complementos de los triangulos verdes para cerrar
     for i in range(1, qq[-1] - qq[0] + 1):
@@ -1591,7 +1591,7 @@ def helkeyway(vertices,faces, normals, z,radiopoligono,anchoeng,r1,alturaC,ancho
             faces = np.append(faces, [[k02 + i, k32 + j + 1, k32 + j]], axis=0)
             p = 0
             if ppi1 == 0:
-                print("Maldita sea Jimbo, el comunismo no funciona !")
+                print("Error on green triangles, please send this error message to gfsolucionesintegradas@gmail.com DATA: ", vertices, faces, normals, z, radiopoligono, anchoeng, r1, alturaC, anchoC)
 
     # Creo los complementos de los triangulos verdes para cerrar
     for i in range(1, qq[-1] - qq[0] + 1):
@@ -1776,7 +1776,7 @@ def helcirculo(vertices,faces,normals,z,radiopoligono,a1,anchoeng,rcircunscrito,
             normals = np.append(normals, [normal], axis=0)
 
     else:
-        print("Radio del polígono circumscrito es muy grande, pruebe con un valor <" + str(radiopoligono))
+        print("Radius of the circumscript polygon is too big, plese try with a value <" + str(radiopoligono))
     return vertices, faces, normals
 
 
@@ -2381,7 +2381,7 @@ def dblhelkeyway(vertices,faces,z,radiopoligono,anchoeng,r1,alturaC,anchoC,angro
             faces = np.append(faces, [[k02 + i, k32 + j, k32 + j + 1]], axis=0)
             p = 0
             if ppi1 == 0:
-                print("Maldita sea Jimbo, el comunismo no funciona !")
+                print("Error on green triangles, please send this error message to gfsolucionesintegradas@gmail.com DATA: ", vertices, faces, normals, z, radiopoligono, anchoeng, r1, alturaC, anchoC)
 
     # Creo los complementos de los triangulos verdes para cerrar
     for i in range(1, qq[-1] - qq[0] + 1):
@@ -2513,7 +2513,7 @@ def dblhelkeyway(vertices,faces,z,radiopoligono,anchoeng,r1,alturaC,anchoC,angro
             faces = np.append(faces, [[k02 + i, k32 + j + 1, k32 + j]], axis=0)
             p = 0
             if ppi1 == 0:
-                print("Maldita sea Jimbo, el comunismo no funciona !")
+                print("Error on green triangles, please send this error message to gfsolucionesintegradas@gmail.com DATA: ", vertices, faces, normals, z, radiopoligono, anchoeng, r1, alturaC, anchoC)
 
     # Creo los complementos de los triangulos verdes para cerrar
     for i in range(1, qq[-1] - qq[0] + 1):
@@ -2718,7 +2718,7 @@ def DOcuadrado(vertices, faces, normals, angroth, z, radiopoligono, a1, anchoeng
             normal = normal_to_surface(v1, v2, v3)
             normals = np.append(normals, [normal], axis=0)
     else:
-        print("Radio del polígono circumscrito es muy grande, pruebe con un valor <" + str(radiopoligono))
+        print("Radius of the circumscript polygon is too big, plese try with a value <" + str(radiopoligono))
     return vertices, faces, normals
 
 def DOhexagono(vertices, faces, normals, angroth, z, radiopoligono, a1, anchoeng, rcircunscrito):
@@ -2836,7 +2836,7 @@ def DOhexagono(vertices, faces, normals, angroth, z, radiopoligono, a1, anchoeng
             normal = normal_to_surface(v1, v2, v3)
             normals = np.append(normals, [normal], axis=0)
     else:
-        print("Radio del polígono circumscrito es muy grande, pruebe con un valor <" + str(radiopoligono))
+        print("Radius of the circumscript polygon is too big, plese try with a value <" + str(radiopoligono))
     return vertices, faces, normals
 
 def DOkeyway(vertices, faces, normals, angroth, z, radiopoligono, anchoeng, r1, alturaC, anchoC):
@@ -3021,7 +3021,7 @@ def DOkeyway(vertices, faces, normals, angroth, z, radiopoligono, anchoeng, r1, 
     # Añade los triangulos magenta inferiores restantes
     vertices = np.append(vertices, [[nprx, npry, 0]], axis=0)
     k8 = len(vertices) - 1
-    print("k8", k8)
+    #print("k8", k8)
     for i in range(qp[-1], len(rx1)):
         if ry10[i] < -py0:
             vertices = np.append(vertices, [[rx1[i], ry1[i], 0]], axis=0)
@@ -3065,7 +3065,7 @@ def DOkeyway(vertices, faces, normals, angroth, z, radiopoligono, anchoeng, r1, 
             faces = np.append(faces, [[k3 + j + 1, k0 + i, k3 + j]], axis=0)
             p = 0
             if ppi1 == 0:
-                print("Maldita sea Jimbo, el comunismo no funciona !")
+                print("Error on green triangles, please send this error message to gfsolucionesintegradas@gmail.com DATA: ", vertices, faces, normals, z, radiopoligono, anchoeng, r1, alturaC, anchoC)
 
     # Creo los complementos de los triangulos verdes para cerrar
     for i in range(1, qq[-1] - qq[0] + 1):
@@ -3086,7 +3086,7 @@ def DOkeyway(vertices, faces, normals, angroth, z, radiopoligono, anchoeng, r1, 
     # Añade los triangulos magenta inferiores restantes
     for i in range(1, k97):
         faces = np.append(faces, [[k7 + i + 2, k4 + 2, k7 + i + 1]], axis=0)
-        print("magenta", i)
+        #print("magenta", i)
     faces = np.append(faces, [[k7 + 1, k4 + 2, k9]], axis=0)
 
     # Agrega la cabeza y el resto de triangulos del pe que no están
@@ -3191,7 +3191,7 @@ def DOkeyway(vertices, faces, normals, angroth, z, radiopoligono, anchoeng, r1, 
             faces = np.append(faces, [[k02 + i, k32 + j + 1, k32 + j]], axis=0)
             p = 0
             if ppi1 == 0:
-                print("Maldita sea Jimbo, el comunismo no funciona !")
+                print("Error on green triangles, please send this error message to gfsolucionesintegradas@gmail.com DATA: ", vertices, faces, normals, z, radiopoligono, anchoeng, r1, alturaC, anchoC)
 
     # Creo los complementos de los triangulos verdes para cerrar
     for i in range(1, qq[-1] - qq[0] + 1):
@@ -3370,7 +3370,7 @@ def DOcirculo(vertices,faces,normals, angroth, z,radiopoligono,a1,anchoeng,rcirc
             normal = normal_to_surface(v1, v2, v3)
             normals = np.append(normals, [normal], axis=0)
     else:
-        print("Radio del polígono circumscrito es muy grande, pruebe con un valor <" + str(radiopoligono))
+        print("Radius of the circumscript polygon is too big, plese try with a value <" + str(radiopoligono))
     return vertices, faces, normals
 
 
@@ -3522,8 +3522,8 @@ class Gear:
         a = "SpurGear made by GFSI [JMGO] all rights reserved."
         header = "{:<80}".format(a)
         lenfaces = len(self._Gear__faces)
-        print("caras",lenfaces)
-        print("normales", len(self._Gear__normals))
+        #print("caras",lenfaces)
+        #print("normales", len(self._Gear__normals))
         bytelf = lenfaces.to_bytes(4, "little")
         ruta = route +"\\"+name + ".stl"
         #ruta = r"C:\Users\juang\Documents\Programación\Web Projects\mythreejsproject\TEXTFILE2.stl"
@@ -3631,8 +3631,8 @@ class Gear:
         a = "SpurGear made by GFSI [JMGO] all rights reserved."
         header = "{:<80}".format(a)
         lenfaces = len(self._Gear__faces)
-        print("caras",lenfaces)
-        print("normales", len(self._Gear__normals))
+        #print("caras",lenfaces)
+        #print("normales", len(self._Gear__normals))
         bytelf = lenfaces.to_bytes(4, "little")
         ruta = route +"\\"+name + ".stl"
         #ruta = r"C:\Users\juang\Documents\Programación\Web Projects\mythreejsproject\TEXTFILE2.stl"
@@ -4026,7 +4026,7 @@ class HelicalGear(Gear):
         self.__ph = np.pi * self._Gear__dv * (np.cos(self.__ah) / np.sin(self.__ah))
         self.__anchosep = self.anchoeng / self.__seps
         self.__anghrot = (self.anchoeng * 2 * np.pi) / self.__ph
-        print("HELICOIDAL", self.__anghrot)
+        #print("HELICOIDAL", self.__anghrot)
         self.__ahsep = self.__anghrot / self.__seps
 
     def GetFacets(self):
@@ -4426,13 +4426,13 @@ class HelicalGear(Gear):
         self._Gear__vertices = listaaguj[0]
         self._Gear__faces = listaaguj[1]
         self._Gear__normals = listaaguj[2]
-        print("AAAAAAA",2*np.pi/self.__anghrot)
+        #print("AAAAAAA",2*np.pi/self.__anghrot)
         #omega = len(vertijuan)
         # print(len(vertijuan)/omega)
         # Imprime en la pantalla la cantidad de dientes que tiene el engrane realmente
         # print("zzz", len(self._Gear__vertices) / len(vertieterno), len(self._Gear__faces ))
         #print("Optimizado3 en %s seconds" % (time.time() - start_time2))
-        # endregion
+        
 
 class DoubleHelicalGear(Gear):
     def __init__(self, modulo, apdeg, ahdeg, z, anchoeng, HoleData):
@@ -4478,7 +4478,7 @@ class DoubleHelicalGear(Gear):
         self.__ph = np.pi * self._Gear__dv * (np.cos(self.__ah) / np.sin(self.__ah))
         self.__anchosep = self.anchoeng / self.__seps
         self.__anghrot = (self.anchoeng * 2 * np.pi) / self.__ph
-        print("DHELICOIDAL", self.__anghrot)
+        #print("DHELICOIDAL", self.__anghrot)
         self.__ahsep = self.__anghrot / self.__seps
 
     def GetFacets(self):
@@ -4883,7 +4883,5 @@ class DoubleHelicalGear(Gear):
 
 
         # endregion
-
+# endregion
 #endregion
-
-
